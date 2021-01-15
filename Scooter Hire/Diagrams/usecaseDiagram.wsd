@@ -4,7 +4,7 @@ actor "Customer" as fc
 
 rectangle ScooterHireSystem {
   usecase "Hire scooter from charging station" as UC1 
-  usecase "Pay for scooter" as UC1
+  usecase "Take scooter from station" as UC1
   usecase "Return scooter to charging station" as UC2
 }
 

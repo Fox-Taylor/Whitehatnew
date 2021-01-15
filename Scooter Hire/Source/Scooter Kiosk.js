@@ -6,3 +6,4 @@ class Scooterkiosk{
 }
 
 module.exports = Scooterkiosk
+//
