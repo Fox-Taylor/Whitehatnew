@@ -56,12 +56,12 @@ else {console.log('The kiosk has scooters'),operating = true}
 
 
 
-
+console.log('The Kiosk has '+cash+'$')
 console.log('Is the Kiosk open? ',operating)
 console.log(' ')
 console.log('Hello Customer! what is you name?')
 console.log('My name is '+customerone.name)
-console.log('Hello '+customerone.name+' Would you like to hire a scooter for 10$?')
+console.log('Hello '+customerone.name+', Would you like to hire a scooter for 10$?')
 
 choice=true
 
@@ -71,9 +71,19 @@ else {console.log('No'),console.log('Ok goodbye '+customerone.name)}
 if (choice==true) {console.log('Ok we will now process your payment.'),console.log('You currently have '+customerone.money+'$')}
 console.log('We are now deducting 10$ ...')
 customerone.money=customerone.money-10
+cash=cash+10
 console.log('Your balance is now '+customerone.money+'$')
+console.log('')
+console.log('The Kiosk now has '+cash+'$')
+console.log('')
 
+//customer one takes a scooter from station one
+console.log(customerone.name+' Has taken the '+scooterone.scooterid+' Scooter from Station '+stationone.station)
+stationone.charging=0
+customerone.driving=1
 
+// customer one is driving
+console.log('')
 
 
 //console.log(customerone.name)
