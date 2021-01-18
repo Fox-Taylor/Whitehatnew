@@ -83,7 +83,18 @@ stationone.charging=0
 customerone.driving=1
 
 // customer one is driving
+console.log('The scooter has a charge of '+scooterone.charge+'%')
 console.log(customerone.name+' is driving the '+scooterone.scooterid+" Scooter!")
-console.log('The scooter has a charge of '+)
+
+scooterone.charge=18
+console.log('The scooter has a charge of '+scooterone.charge+'%')
+
+if (scooterone.charge <= 20) {console.log(customerone.name+" Your battery is low! return your scooter!")}
+customerone.returning=1
+if (customerone.returning==1) {console.log('Returning '+scooterone.scooterid+' Scooter')}
+
+// charging stuff
+//if stationone.
+
 
 //console.log(customerone.name)
