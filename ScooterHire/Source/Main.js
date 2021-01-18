@@ -83,7 +83,7 @@ stationone.charging=0
 customerone.driving=1
 
 // customer one is driving
-console.log('')
-
+console.log(customerone.name+' is driving the '+scooterone.scooterid+" Scooter!")
+console.log('The scooter has a charge of '+)
 
 //console.log(customerone.name)
