@@ -1,7 +1,7 @@
 class Scooter{
-    constructor(scooterid,charging){
+    constructor(scooterid,charge){
         this.scooterid = scooterid
-        this.charging = charging
+        this.charge = charge
     }
 
 }
