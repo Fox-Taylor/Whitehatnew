@@ -37,7 +37,6 @@ h1 {
 article {
     border: solid 1px black;
     width: calc(100% - 2rem);
-   /* height: 1 fr; */
     margin: 1rem 1rem;
     font-family: 'papyrus';
     font-size: 125%;
