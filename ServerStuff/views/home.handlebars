@@ -2,7 +2,8 @@
 <h1>Restaurants</h1>
 <section>
     {{#each restaurants}}
- <a href="/restaurants/{{this.id}}">
+    <span>
+   <a href="/restaurants/{{this.id}}">
     <article>
      <header style="background-image: url({{this.image}});" ></header>
         <main>
@@ -14,9 +15,10 @@
                 {{/each}}
             {{/each}} --}}
         </main>
-
     </article>
     </a>
+    <a href="/restaurants/{{this.id}}/delete">Delete </a>
+    </span>
     {{/each}}
 </section>
 

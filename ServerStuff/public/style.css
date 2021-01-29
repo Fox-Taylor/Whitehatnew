@@ -34,6 +34,12 @@ h1 {
     /* changes font of h1 text */
     font-family: "Lucida handwriting";
 }
+
+h2 {
+font-family: 'Franklin Gothic Medium';
+
+}
+
 article {
     border: solid 1px black;
     width: calc(100% - 2rem);

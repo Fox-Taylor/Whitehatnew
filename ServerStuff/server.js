@@ -20,6 +20,10 @@ app.set('view engine', 'handlebars')
 // serve static assets from the public/ folder
 app.use(express.static('public'));
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+
 // this route matches any GET request to the http://localhost:3000
 app.get('/', async (req, res) => {
    const restaurants = await Restaurant.findAll({
@@ -56,6 +60,25 @@ app.get('/about', async (req, res) => {
 
  })
 
+
+ app.get('/restaurants/:id/delete', async (req, res) => {
+    Restaurant.findByPk(req.params.id)
+        .then(restaurant => {
+            restaurant.destroy()
+            res.redirect('/')
+        })
+})
+
+
+ app.get('/new', async (req, res) => {
+    res.render("new")
+ })
+
+ 
+ app.post('/new', async (req, res) => {
+    await Restaurant.create(req.body)
+    res.redirect("/")
+ })
 
 
 app.listen(port, () => {
