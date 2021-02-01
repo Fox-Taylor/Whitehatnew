@@ -3,9 +3,11 @@
 <section>
     {{#each restaurants}}
     <span>
-   <a href="/restaurants/{{this.id}}">
+        <!--added name-->
+   <a href="/restaurants/{{this.id}}" alt="This is {{this.name}}">
     <article>
-     <header style="background-image: url({{this.image}});" ></header>
+        <!--added alt tag with + name of restaurant-->
+   <header style="background-image: url({{this.image}});" alt="This is an image of {{this.name}}" ></header>
         <main>
             {{this.name}}
             {{!-- {{#each this.menus}}        
@@ -15,11 +17,40 @@
                 {{/each}}
             {{/each}} --}}
         </main>
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="50" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
     </article>
     </a>
-    <a href="/restaurants/{{this.id}}/delete">Delete </a>
+    <!--  added the name of the restaurant after delete, to make it clearer  -->
+    <a href="/restaurants/{{this.id}}/delete">Delete {{this.name}}</a>
     </span>
     {{/each}}
+    
+<div>Number of page loads:
+<span id="Counter">
+
+</span>
+
+</div>
+
+ <script>
+        var n = localStorage.getItem('on_load_counter');
+
+        if (n === null) {
+            n = 0;
+        }
+        n++;
+
+        localStorage.setItem("on_load_counter", n);
+
+        nums = n.toString().split('').map(Number);
+        document.getElementById('Counter').innerHTML = '';
+        for (var i of nums) {
+            document.getElementById('Counter').innerHTML += '<span class="counter-item">' + i + '</span>';
+        }
+
+    </script>
+
+
 </section>
 
 
