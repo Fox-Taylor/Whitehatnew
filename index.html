@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fetch</title>
+    <!-- lightweight CSS so inlining -->
+    <style>
+      #root {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .container {
+        margin-top: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="container">
+        <div id="content"></div>
+      </div>
+    </div>
+    <script>
+      const url = "https://http-challenge.multiverse-coaches.io/apprentices";
+
+      fetch(url, {
+        method: "POST",
+        headers:{
+        'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({name:"fox"})
+
+      })
+        .then((res) => res.text())
+        .then((msg) => {
+          console.log(msg)
+          const [yourId] = msg.match(/(?<=\/)[a-zA-Z0-9]+(?=')/)
+          return yourId
+        })
+        .catch((e) => {
+          console.log(e.message);
+        })
+        .then(Id =>{ 
+          const idUrl = `${url}/${Id}`
+           fetch(`${idUrl}?Your-Id=${Id}`, { 
+            method: "GET", 
+        
+           })
+          .then(res => res.text())
+          .then(msg => console.log(msg)) 
+          
+          .catch((e) => {
+          console.log(e.message);
+         })
+
+         .then(()=>{
+           const guests = "guests=fred%2Cbarny%2Cwilma"
+
+           fetch(`${idUrl}`,{
+             method: "PATCH",
+             
+             headers:{
+             'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              
+              body:guests
+    
+           })
+           .then(res => res.text())
+           .then(msg => console.log(msg))
+         })
+        
+         .then(()=>{
+          fetch(`${idUrl}/menus?starter=fish&main=ham&dessert=ice`,{
+            method: "GET",
+          })
+          .then(res => res.text())
+          .then(msg => console.log(msg))
+
+         })
+         
+        
+
+        })
+
+        
+
+
+
+      // continue to chain fetch requests here
+        
+      
+
+    </script>
+  </body>
+</html>
+
